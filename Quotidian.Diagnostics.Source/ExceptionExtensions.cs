@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace qdiag
+namespace Quotidian.Diagnostics
 {
     public static class ExceptionExtensions
     {
