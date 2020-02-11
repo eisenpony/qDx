@@ -10,7 +10,7 @@
     <Description>Everyday diagnostics for every day.</Description>
     <PackageProjectUrl>https://github.com/eisenpony/qDx</PackageProjectUrl>
     <RepositoryUrl>https://github.com/eisenpony/qDx</RepositoryUrl>
-    <Version>1.0.1</Version>
+    <Version>1.1</Version>
   </PropertyGroup>
 
 </Project>

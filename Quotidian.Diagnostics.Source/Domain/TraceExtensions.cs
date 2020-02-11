@@ -11,6 +11,13 @@ namespace Quotidian.Diagnostics.Source.Domain
         public static ITrace Verbose<T>(this ITrace trace, Enum code, T data, string correlation = null) => Log(TraceLevel.Verbose, trace, code, data, correlation);
         public static ITrace Verbose<T>(this ITrace trace, Enum code, Func<T> factory, string correlation = null) => Log(TraceLevel.Verbose, trace, code, factory, correlation);
 
+        public static ITrace Warning<T>(this ITrace trace, T data, string correlation = null) => Log(TraceLevel.Warning, trace, null, data, correlation);
+        public static ITrace Warning<T>(this ITrace trace, Func<T> factory, string correlation = null) => Log(TraceLevel.Warning, trace, null, factory, correlation);
+        public static ITrace Information<T>(this ITrace trace, T data, string correlation = null) => Log(TraceLevel.Information, trace, null, data, correlation);
+        public static ITrace Information<T>(this ITrace trace, Func<T> factory, string correlation = null) => Log(TraceLevel.Information, trace, null, factory, correlation);
+        public static ITrace Verbose<T>(this ITrace trace, T data, string correlation = null) => Log(TraceLevel.Verbose, trace, null, data, correlation);
+        public static ITrace Verbose<T>(this ITrace trace, Func<T> factory, string correlation = null) => Log(TraceLevel.Verbose, trace, null, factory, correlation);
+
         private static ITrace Log<T>(TraceLevel level, ITrace trace, Enum code, T data, string correlation = null)
         {
             var entry = new LogEntry<T>(trace.Name, level, data)
