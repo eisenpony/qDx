@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard1.0;netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>qdx</PackageId>
     <Authors>Landon</Authors>
@@ -10,7 +10,13 @@
     <Description>Everyday diagnostics for every day.</Description>
     <PackageProjectUrl>https://github.com/eisenpony/qDx</PackageProjectUrl>
     <RepositoryUrl>https://github.com/eisenpony/qDx</RepositoryUrl>
-    <Version>1.1</Version>
+    <Version>2.0</Version>
+    <PackageReleaseNotes>Multitarget .net standard 1.0 and 2.0
+Remove error code as required field from Domain extension methods
+Reorder some parameters for consistency
+Added CompositeTrace for conveniently combining trace implementations</PackageReleaseNotes>
+    <PackageTags>Diagnostics Logging</PackageTags>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
 </Project>

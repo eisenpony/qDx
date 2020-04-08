@@ -7,8 +7,7 @@ namespace Quotidian.Diagnostics.Source
         Enum Code { get; set; }
         string CorrelationId { get; set; }
         TraceLevel Level { get; }
-        string SourceName { get; }
-        DateTimeOffset TimeStamp { get; set; }
+        DateTimeOffset TimeStamp { get; }
 
         void TraceTo(ITrace trace);
     }

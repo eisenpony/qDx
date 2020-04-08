@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quotidian.Diagnostics.Source", "Quotidian.Diagnostics.Source\Quotidian.Diagnostics.Source.csproj", "{DB0E4074-9C45-4A5E-A150-F7FE82868FAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quotidian.Diagnostics", "Quotidian.Diagnostics\Quotidian.Diagnostics.csproj", "{DB0E4074-9C45-4A5E-A150-F7FE82868FAB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quotidian.Diagnostics.Source.Tests", "Quotidian.Diagnostics.Source.Tests\Quotidian.Diagnostics.Source.Tests.csproj", "{B842F924-6F5C-48F5-B955-03A4EE95B4E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quotidian.Diagnostics.Tests", "Quotidian.Diagnostics.Tests\Quotidian.Diagnostics.Tests.csproj", "{B842F924-6F5C-48F5-B955-03A4EE95B4E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

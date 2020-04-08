@@ -11,7 +11,7 @@ namespace Quotidian.Diagnostics.Source.Application
 
         private static ITrace Log<T>(TraceLevel level, ITrace trace, T data, Enum code = null, string correlation = null)
         {
-            var entry = new LogEntry<T>(trace.Name, level, data)
+            var entry = new LogEntry<T>(level, data)
             {
                 Code = code,
                 CorrelationId = correlation
@@ -22,7 +22,7 @@ namespace Quotidian.Diagnostics.Source.Application
 
         private static ITrace Log<T>(TraceLevel level, ITrace trace, Func<T> data, Enum code = null, string correlation = null)
         {
-            var entry = new LogEntry<T>(trace.Name, level, new Lazy<T>(data))
+            var entry = new LogEntry<T>(level, new Lazy<T>(data))
             {
                 Code = code,
                 CorrelationId = correlation

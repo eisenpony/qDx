@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Quotidian.Diagnostics.Source.Application
+namespace Quotidian.Diagnostics.Source.Domain
 {
     public static class ReportExtensions
     {
@@ -18,29 +18,34 @@ namespace Quotidian.Diagnostics.Source.Application
             return new TraceReport(trace, code, null);
         }
 
-        public static TraceReport Critical<T>(this TraceReport trace, T data) => Log(TraceLevel.Critical, trace, data);
-        public static TraceReport Critical<T>(this TraceReport trace, Func<T> factory) => Log(TraceLevel.Critical, trace, factory);
-        public static TraceReport Error<T>(this TraceReport trace, T data) => Log(TraceLevel.Error, trace, data);
-        public static TraceReport Error<T>(this TraceReport trace, Func<T> factory) => Log(TraceLevel.Error, trace, factory);
 
-        private static TraceReport Log<T>(TraceLevel level, TraceReport trace, T data, Enum code = null, string correlation = null)
+        public static TraceReport Warning<T>(this TraceReport trace, T data) => Log(TraceLevel.Warning, trace, data);
+        public static TraceReport Warning<T>(this TraceReport trace, Func<T> factory) => Log(TraceLevel.Warning, trace, factory);
+        public static TraceReport Information<T>(this TraceReport trace, T data) => Log(TraceLevel.Information, trace, data);
+        public static TraceReport Information<T>(this TraceReport trace, Func<T> factory) => Log(TraceLevel.Information, trace, factory);
+        public static TraceReport Verbose<T>(this TraceReport trace, T data) => Log(TraceLevel.Verbose, trace, data);
+        public static TraceReport Verbose<T>(this TraceReport trace, Func<T> factory) => Log(TraceLevel.Verbose, trace, factory);
+
+        private static TraceReport Log<T>(TraceLevel level, TraceReport trace, T data)
         {
-            var entry = new LogEntry<T>(trace.Name, level, data)
+            var entry = new LogEntry<T>(level, data)
             {
-                Code = code,
-                CorrelationId = correlation
+                Code = trace.Code,
+                CorrelationId = trace.Correlation
             };
+
             trace.Log(entry);
             return trace;
         }
 
-        private static TraceReport Log<T>(TraceLevel level, TraceReport trace, Func<T> data, Enum code = null, string correlation = null)
+        private static TraceReport Log<T>(TraceLevel level, TraceReport trace, Func<T> data)
         {
-            var entry = new LogEntry<T>(trace.Name, level, new Lazy<T>(data))
+            var entry = new LogEntry<T>(level, new Lazy<T>(data))
             {
-                Code = code,
-                CorrelationId = correlation
+                Code = trace.Code,
+                CorrelationId = trace.Correlation
             };
+
             trace.Log(entry);
             return trace;
         }
@@ -58,10 +63,8 @@ namespace Quotidian.Diagnostics.Source.Application
 
         List<ILogEntry> Entries { get; }
         ITrace InnerTrace { get; }
-        Enum Code { get; }
-        string Correlation { get; }
-
-        public string Name => InnerTrace.Name;
+        public Enum Code { get; }
+        public string Correlation { get; }
 
         public void Log<T>(ILogEntry<T> entry)
         {

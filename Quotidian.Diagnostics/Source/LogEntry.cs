@@ -4,29 +4,24 @@ namespace Quotidian.Diagnostics.Source
 {
     public class LogEntry<T> : ILogEntry<T>
     {
-        public LogEntry(string sourceName, TraceLevel level, Lazy<T> data)
-            : this(sourceName, level)
+        public LogEntry(TraceLevel level, Lazy<T> data)
+            : this(level)
         {
             LazyData = data;
         }
 
-        public LogEntry(string sourceName, TraceLevel level, T data)
-            : this(sourceName, level)
+        public LogEntry(TraceLevel level, T data)
+            : this(level)
         {
             this.data = data;
         }
 
-        private LogEntry(string sourceName, TraceLevel level)
+        private LogEntry(TraceLevel level)
         {
-            if (string.IsNullOrWhiteSpace(sourceName))
-                throw new ArgumentException("Cannot be empty", nameof(sourceName));
-
-            SourceName = sourceName;
             Level = level;
             TimeStamp = DateTimeOffset.Now;
         }
 
-        public string SourceName { get; }
         public TraceLevel Level { get; }
         public DateTimeOffset TimeStamp { get; set; }
         public Enum Code { get; set; }
