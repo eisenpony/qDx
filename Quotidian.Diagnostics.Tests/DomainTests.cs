@@ -4,7 +4,7 @@ using NUnit.Framework;
 using Quotidian.Diagnostics.Source;
 using Quotidian.Diagnostics.Source.Domain;
 
-namespace Tests
+namespace Quotidian.Diagnostics.Tests
 {
     public class DomainTests
     {

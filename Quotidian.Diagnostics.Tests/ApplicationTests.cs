@@ -4,7 +4,7 @@ using NUnit.Framework;
 using Quotidian.Diagnostics.Source;
 using Quotidian.Diagnostics.Source.Application;
 
-namespace Tests
+namespace Quotidian.Diagnostics.Tests
 {
     public class ApplicationTests
     {

@@ -25,14 +25,15 @@ namespace Quotidian.Diagnostics
                 return;
             }
 
-            trace.Append(indent)
-                 .Append(e.Message)
-                 .AppendLine();
+            foreach (var l in e.Message.Split('\n'))
+                trace.Append(indent)
+                     .Append(l.TrimEnd('\r'))
+                     .AppendLine();
 
             if (e.StackTrace != null)
                 foreach (var l in e.StackTrace.Split('\n'))
                     trace.Append(indent)
-                         .Append(l)
+                         .Append(l.TrimEnd('\r'))
                          .AppendLine();
 
             indent.Append("  ");

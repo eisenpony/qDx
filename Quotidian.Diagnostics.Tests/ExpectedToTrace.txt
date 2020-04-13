@@ -1,0 +1,5 @@
+﻿Wrapping error
+   at Quotidian.Diagnostics.Tests.ExtensionTests.TestToTrace() in ***
+  Low level error
+  Parameter name: arg
+     at Quotidian.Diagnostics.Tests.ExtensionTests.TestToTrace() in ***
