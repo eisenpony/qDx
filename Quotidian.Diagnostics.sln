@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "qdx.Samples.FileCreator", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qdx.Samples.FileCreator.Console", "Samples\qdx.Samples.FileCreator.Console\qdx.Samples.FileCreator.Console.csproj", "{9AA6A783-79EA-4C67-9472-663FE2F3687C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qdx.Samples.FileCreator.WPF", "qdx.Samples.FileCreator.WPF\qdx.Samples.FileCreator.WPF.csproj", "{F070FB6E-A81D-43B7-97C9-2076B7148EE5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qdx.Samples.FileCreator.WPF", "Samples\qdx.Samples.FileCreator.WPF\qdx.Samples.FileCreator.WPF.csproj", "{F070FB6E-A81D-43B7-97C9-2076B7148EE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

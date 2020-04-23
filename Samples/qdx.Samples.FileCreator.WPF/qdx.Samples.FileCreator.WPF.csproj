@@ -125,7 +125,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Samples\qdx.Samples.FileCreator\qdx.Samples.FileCreator.csproj">
+    <ProjectReference Include="..\qdx.Samples.FileCreator\qdx.Samples.FileCreator.csproj">
       <Project>{f221b77f-d7fd-4fef-b86b-1e9b1b560eae}</Project>
       <Name>qdx.Samples.FileCreator</Name>
     </ProjectReference>
