@@ -1,0 +1,57 @@
+﻿<Window x:Name="window" x:Class="qdx.Samples.FileCreator.WPF.View.FileMakerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:qdx.Samples.FileCreator.WPF"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:qdx="clr-namespace:Quotidian.Diagnostics.Source;assembly=Quotidian.Diagnostics"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        DataContext="{Binding RelativeSource={RelativeSource self}}">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="traceLevels" MethodName="GetValues"
+                            ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="qdx:TraceLevel"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Margin="10" DataContext="{Binding Context}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <GroupBox Header="Create" BorderBrush="Gray" BorderThickness="1" Background="#eeeeee" >
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="Create"/>
+                        <TextBox Text="{Binding NumberFiles}" Height="24" VerticalAlignment="Center" />
+                        <Label Content="Files here" Height="32" />
+                        <ComboBox Height="24" ItemsSource="{Binding VisibleDirectories}" SelectedItem="{Binding SelectedDirectory}" IsEditable="True" PreviewKeyDown="ComboBox_PreviewKeyDown" />
+                    </StackPanel>
+                    <Slider Value="{Binding NumberFiles}" Minimum="0" Maximum="100" Margin="5" />
+                    <Button Content="Create" Height="32" Width="64" HorizontalAlignment="Left" Margin="5" Command="{Binding CreateFiles}" />
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Trace" BorderBrush="Gray" BorderThickness="1" Background="#eeeeee" Margin="0,5,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Log messages at this level or above" />
+                    <ComboBox SelectedItem="{Binding TraceLevel}" ItemsSource="{Binding Source={StaticResource traceLevels}}" Width="100" />
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+        <ListView ItemsSource="{Binding Files}" Grid.Row="1" Margin="0,10,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

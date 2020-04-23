@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>qdx.Samples.FileCreator</AssemblyName>
+    <RootNamespace>qdx.Samples.FileCreator</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="qdx" Version="2.0.1" />
+  </ItemGroup>
+
+</Project>
